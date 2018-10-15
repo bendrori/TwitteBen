@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".start.messagesselection.view.MessagesSelectionActivity"
+    >
+  <android.support.v7.widget.Toolbar
+      android:id="@+id/messageSelectedToolbar"
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      app:theme="@style/ToolbarColoredBackArrow"
+      app:popupTheme="@style/AppTheme"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:color/transparent"
+      android:minHeight="@dimen/abc_action_bar_default_height_material">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:src="@drawable/twitter_ben_icon"/>
+  </android.support.v7.widget.Toolbar>
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/messageSelectedRecyclerViewId"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/messageSelectedToolbar"
+      />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".start.messagesroom.view.MessagesRoomActivity"
+    >
+
+  <android.support.v7.widget.Toolbar
+      android:id="@+id/messageToolbar"
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      app:theme="@style/ToolbarColoredBackArrow"
+      app:popupTheme="@style/AppTheme"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:color/transparent"
+      android:minHeight="@dimen/abc_action_bar_default_height_material">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:src="@drawable/twitter_ben_icon"/>
+  </android.support.v7.widget.Toolbar>
+
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/messagesRoomRecyclerViewId"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="56dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/messageToolbar"
+      />
+  <Button
+      android:id="@+id/messagesRoomSendButtonId"
+      android:layout_width="88dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="4dp"
+      android:layout_marginRight="4dp"
+      android:background="@drawable/radius_button_get_started"
+      android:text="send"
+      android:textColor="@android:color/white"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/messagesRoomRecyclerViewId"
+      />
+  <EditText
+      android:id="@+id/messagesRoomEditTextId"
+      android:layout_width="0dp"
+      android:layout_height="46dp"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:padding="12dp"
+      android:hint="Your Message"
+      android:background="@android:color/transparent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/messagesRoomSendButtonId"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/messagesRoomSendButtonId"
+      />
+
+</android.support.constraint.ConstraintLayout>
