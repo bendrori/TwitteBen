@@ -13,6 +13,7 @@ data class User(
   val skipIntro: Boolean = false,
   val urlImage: String = ""
 )
+
 interface IRegisterPresenter :IRegisterObservers {
   fun registerUser(name: String, email: String, password: String, url: String)
 }
