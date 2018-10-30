@@ -24,6 +24,7 @@ class SigningActivity : AppCompatActivity() {
     setContentView(R.layout.activity_login)
 
     setSupportActionBar(my_toolbar)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     loginButtonLoginId.setOnClickListener {
       loginUser()

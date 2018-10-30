@@ -25,6 +25,7 @@ class MessagesRoomActivity : AppCompatActivity() {
 
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
     supportActionBar?.setDisplayShowHomeEnabled(true)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     messagesRoomRecyclerViewId.layoutManager = LinearLayoutManager(this)
 

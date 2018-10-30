@@ -46,7 +46,6 @@ class SearchFragment : Fragment() ,SearchAdapter.UserFollowClickListener{
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     searchRecyclerViewId.layoutManager = LinearLayoutManager(context)
-
     searchRecyclerViewId.addItemDecoration(
         DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
     )

@@ -64,12 +64,15 @@ class HomeCellAdapter(
       numberOfLikes.text = twitte.likes
 
       if(twitte.likes.toInt() > 0) {
-        if(twitte.likesUsers!!.contains(FirebaseAuth.getInstance().uid))
-          Glide.with(itemView).load(twitte.urlPic).into(favoriteImage)
-        else
-          Glide.with(itemView).load(R.drawable.ic_favorite_border_black_24dp).into(favoriteImage)
+        if (twitte.likesUsers != null) {
+          if (twitte.likesUsers.contains(FirebaseAuth.getInstance().uid))
+            Glide.with(itemView).load(R.drawable.ic_favorite_black_24dp).into(favoriteImage)
+          else
+            Glide.with(itemView).load(R.drawable.ic_favorite_border_black_24dp).into(favoriteImage)
+        }
+      }else {
+        Glide.with(itemView).load(R.drawable.ic_favorite_border_black_24dp).into(favoriteImage)
       }
-
       buttonShare.setOnClickListener {
         shareTwitteClickListener.onListItemClick(twitte = twitte)
       }
@@ -103,5 +106,5 @@ data class Twitte(
   val text: String = "",
   val time: String = "",
   val userUuid: String = "",
-  val likes: String = ""
+  val likes: String = "0"
 )

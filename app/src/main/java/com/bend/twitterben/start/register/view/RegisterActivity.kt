@@ -38,6 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
     setSupportActionBar(my_toolbar)
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     nextButtonRegisterId.setOnClickListener {
       registerUser()

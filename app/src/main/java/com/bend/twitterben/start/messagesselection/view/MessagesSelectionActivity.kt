@@ -32,6 +32,7 @@ class MessagesSelectionActivity : AppCompatActivity() , MessagesSelectionAdapter
 
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
     supportActionBar?.setDisplayShowHomeEnabled(true)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     presenter.getUserList()
 
