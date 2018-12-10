@@ -1,6 +1,8 @@
 package com.bend.twitterben.start.register.presentation
 
 import android.net.Uri
+import android.support.v7.app.AlertDialog
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
@@ -10,13 +12,16 @@ import com.google.firebase.database.FirebaseDatabase
 class RegisterPresenter(private val viewModel: RegisterViewModel):
     IRegisterPresenter , IRegisterObservers by viewModel{
 
+
  override fun registerUser(name: String,email: String, password: String, url: String) {
-   FirebaseAuth.getInstance()
-       .createUserWithEmailAndPassword(email,password)
+     var auth = FirebaseAuth.getInstance()
+
+
+     auth.createUserWithEmailAndPassword(email,password)
        .addOnCompleteListener { task ->
-         if(task.isComplete){
+         if(task.isSuccessful){
            println("Register User Complete")
-           val user = FirebaseAuth.getInstance().currentUser
+           val user = auth.currentUser
            val profileUpdates = UserProfileChangeRequest.Builder()
                .setDisplayName(name)
                .setPhotoUri(Uri.parse(url))
@@ -27,9 +32,11 @@ class RegisterPresenter(private val viewModel: RegisterViewModel):
              viewModel.updateRegisterState(true)
            }
          }
+           if(task.isCanceled)
+               task.exception.toString()
        }
        .addOnFailureListener {
-         println("Register User Fail ${it.message}")
+           viewModel.updateRegisterState(false)
        }
  }
 

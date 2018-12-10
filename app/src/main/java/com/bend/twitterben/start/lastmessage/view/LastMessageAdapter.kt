@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import com.bend.twitterben.R
 import com.bend.twitterben.start.messagesroom.view.Message
 import com.bumptech.glide.Glide

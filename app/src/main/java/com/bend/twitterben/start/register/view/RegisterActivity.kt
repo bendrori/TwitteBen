@@ -1,30 +1,20 @@
 package com.bend.twitterben.start.register.view
 
 import android.app.Activity
-import android.app.ProgressDialog.show
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ProgressBar
+import android.widget.Toast
 import com.bend.twitterben.R
 import com.bend.twitterben.start.main.view.MainActivity
 import com.bend.twitterben.start.register.presentation.RegisterPresenter
 import com.bend.twitterben.start.register.presentation.RegisterViewModel
-import kotlinx.android.synthetic.main.activity_register.addImageButtonRegisterId
-import kotlinx.android.synthetic.main.activity_register.emailEditTextRegisterId
-import kotlinx.android.synthetic.main.activity_register.my_toolbar
-import kotlinx.android.synthetic.main.activity_register.nameEditTextRegisterId
-import kotlinx.android.synthetic.main.activity_register.nextButtonRegisterId
-import kotlinx.android.synthetic.main.activity_register.passwordEditTextRegisterId
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_register.activity_registerId
-import kotlinx.android.synthetic.main.activity_register.imageProgressBarId
-import java.util.UUID
+import kotlinx.android.synthetic.main.activity_register.*
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -54,8 +44,8 @@ class RegisterActivity : AppCompatActivity() {
 
     presenter.registerStateObserve(lifecycle) {
       if(it!!) {
-      val intent = Intent(this, MainActivity::class.java)
-      startActivity(intent)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
       }
     }
   }
@@ -73,10 +63,11 @@ class RegisterActivity : AppCompatActivity() {
   private fun registerUser() {
     val name = nameEditTextRegisterId.text.toString()
     val email = emailEditTextRegisterId.text.toString().trim()
-    val password = passwordEditTextRegisterId.text.toString()
-    if(name.isNotBlank() && email.isNotBlank() && password.isNotBlank()) {
-     println("registerUser URL $url")
+    val password = if(passwordEditTextRegisterId.text.toString().length > 7) passwordEditTextRegisterId.text.toString() else ""
+    if(name.isNotBlank() && email.isNotBlank() && !password.isEmpty()) {
       presenter.registerUser(name, email, password,url)
+    } else {
+      Toast.makeText(this,"Wrong Params, Try again",Toast.LENGTH_LONG).show()
     }
   }
 
@@ -103,7 +94,7 @@ class RegisterActivity : AppCompatActivity() {
               nextButtonRegisterId.isClickable = true
             }
             .addOnFailureListener {
-              println("On Failure Listener putFile ${it.message} ")
+              Log.d("BBB","On Failure Listener putFile ${it.message} ")
               imageProgressBarId.visibility = View.GONE
             }
       }

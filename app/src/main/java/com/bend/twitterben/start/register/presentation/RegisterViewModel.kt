@@ -8,6 +8,7 @@ class RegisterViewModel: ViewModel() ,IRegisterObservers {
 
   private val registerStateObservers = MutableLiveData<Boolean>()
 
+
   override fun registerStateObserve(lifecycle: Lifecycle,observer: (Boolean?) -> Unit) {
     registerStateObservers.observe({lifecycle}) {
       it.let(observer)

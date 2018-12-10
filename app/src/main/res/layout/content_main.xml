@@ -15,8 +15,8 @@
       android:layout_height="0dp"
       android:layout_marginTop="@dimen/abc_action_bar_default_height_material"
       app:layout_constraintBottom_toTopOf="@+id/mainBottomNavigationViewId"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       >
   </android.support.constraint.ConstraintLayout>
@@ -26,8 +26,8 @@
       android:layout_width="0dp"
       android:layout_height="@dimen/nav_bottom_height"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
       app:menu="@menu/bottom_menu"
       />
 </android.support.constraint.ConstraintLayout>
